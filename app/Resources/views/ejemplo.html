@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Prueba</title>
+
+    <style type="text/css">
+    
+
+      body{
+          display:grid;
+          height: 100vh;
+          grid-template-columns: 10% 1fr;
+          grid-template-rows: 1fr 10%;
+          grid-template-areas: 
+            "header header"
+            "nav content"
+            "footer footer";
+      }
+      header{
+        background-color: blueviolet;
+        grid-area: header;
+     
+      }
+      nav{
+          background-color: deepskyblue;
+          grid-area:nav;
+          
+      }
+      section{
+          background-color: white;
+          grid-area: content;
+      }
+      footer{
+          background-color: crimson;
+          grid-area: footer;
+         
+      }
+      </style>
+</head>
+<body>
+ 
+   <header> 
+     Cabecera
+   </header>
+   
+   <nav>
+       navegacion
+   </nav>
+
+   <section>
+      Cuerpo
+   </section>
+
+   <footer>
+  footer
+   </footer>
+
+</body>
+</html>

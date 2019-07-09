@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+{% block title %} Lista de Productos {% endblock %}
+{% block body %}
+ <div class="card-deck row">
+    <div class="card col-md-4 col-lg-4 col-xl-4" style="padding: 20px">
+      <img src="/img/gafa1.jpg" style="border: 2vh solid #c2c2c2;" class="card-img-top">
+      <div class="card-body text-center"> 
+        <b><h5 class="card-title" style="font-family:Arial Black">GAFAS GEEK 1</h5></b>
+        <p class="card-text" ><h1>30$</h1></p>
+        <p class="card-text"><h5><i>Recíbelo ya</i></h5></p>
+        <img src="/img/stars.png" style="width: 14vh">
+      </div>
+    </div>
+    <div class="card col-md-4 col-lg-4 col-xl-4">
+      <img src="/img/gafa2.jpg" class="card-img-top" alt="gafa 2">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+    <div class="card col-md-4 col-lg-4 col-xl-4">
+      <img src="/img/gafa2.jpg" class="card-img-top" alt="gafa 2">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+    <div class="card col-md-4 col-lg-4 col-xl-4">
+      <img src="/img/gafa3.jpg" class="card-img-top" alt="gafa 3">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+{% block footer %}
+{% endblock %} 

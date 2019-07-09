@@ -1,0 +1,9 @@
+trade:
+    resource: '@TradeBundle/Controller/'
+    type:     annotation
+    prefix:   /trade
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+logout:
+    path: /logout
