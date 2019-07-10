@@ -3,7 +3,7 @@
 security:
     encoders:
         TradeBundle\Entity\Usuario: bcrypt
-
+    
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
         our_db_provider:
@@ -20,19 +20,17 @@ security:
             security: false
 
         main:
-            pattern: ^/
-            anonymous: true
+            anonymous: ~ 
             provider: our_db_provider
+            access_denied_url: /
             form_login:
-                username_parameter : username
-                password_parameter : password
                 login_path: login
                 check_path: login
             logout_on_user_change: true
             logout:
-                path: /logout/   
-                target: /
+                path: /logout   
+                target: /trade/registro
 
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/login, roles: ROLE_USER }
+        - { path: ^/registro, roles: ROLE_USER }

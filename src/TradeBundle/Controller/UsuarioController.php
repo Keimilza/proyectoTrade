@@ -41,12 +41,13 @@ class UsuarioController extends Controller
      * @Route("/show/{id}", name="usuario_show", methods={"GET"})
      * 
      */
-    public function showAction(Usuario $usuario)
+    public function showAction($id)
     {
-
-        return $this->render('@Trade/Usuario/show.html.twig', array(
-            'usuario' => $usuario,
-        ));
+        $em= $this->getDoctrine()->getManager();
+        $repository = $em->getRepository(Usuario::class);
+        $usuario = $repository->find($id);
+        return $this->render('@Trade/Usuario/show.html.twig',['usuario' => $usuario]);
+           
     }
 
     /**
@@ -102,5 +103,13 @@ class UsuarioController extends Controller
             'form'  => $form->createView(),
             'error' => $error
         ]);
+    }
+
+    /**
+    * @Route("/logout", name="logout")
+    */
+    public function logoutAction(Request $request)
+    {
+        // UNREACHABLE CODE
     }
 }

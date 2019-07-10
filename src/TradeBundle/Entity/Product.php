@@ -71,14 +71,6 @@ class Product
      */
     private $updateAt;
 
-     /**
-     * One Product has One Marca.
-     * @OneToOne(targetEntity="Marca", inversedBy="product")
-     * @JoinColumn(name="marca_id", referencedColumnName="id")
-     */
-    private $marca;
-
-
     /**
      * Get id
      *
@@ -187,7 +179,6 @@ class Product
         return $this->price;
     }
 
-
       /**
      * Set image
      *
@@ -261,27 +252,4 @@ class Product
         return $this->updateAt;
     }
 
-     /**
-     * Set marca
-     *
-     * @param \TradeBundle\Entity\Marca $marca
-     *
-     * @return Product
-     */
-    public function setMarca(\TradeBundle\Entity\Marca $marca = null)
-    {
-        $this->marca = $marca;
-
-        return $this;
-    }
-
-    /**
-     * Get marca
-     *
-     * @return \TradeBundle\Entity\Marca
-     */
-    public function getMarca()
-    {
-        return $this->marca;
-    }
 }
