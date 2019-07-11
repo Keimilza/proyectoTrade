@@ -3,19 +3,7 @@
 {% block title %} Lista de Productos {% endblock %}
 
 {% block body %}
-    {% for prod in prods %}
-       <div class="card-deck row">
-         <div class="card col-md-4 col-lg-4 col-xl-4" style="padding: 20px">
-           <img src={{ prod.image }} style="border: 2vh solid #c2c2c2;" class="card-img-top">
-              <div class="card-body text-center"> 
-                <b><h5 class="card-title" style="font-family:Arial Black">{{ prod.description }}</h5></b>
-                <p class="card-text" ><h1>{{ prod.price }}$</h1></p>
-                <p class="card-text"><h5><i>Recíbelo ya</i></h5></p>
-                <img src="/img/stars.png" style="width: 14vh">
-              </div>
-          </div>
-        </div>
-      {% endfor %}
+
 {% endblock %}
 
 {% block footer %}

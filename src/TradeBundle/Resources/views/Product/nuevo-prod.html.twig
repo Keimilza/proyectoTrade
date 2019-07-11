@@ -1,17 +1,16 @@
 {% extends "base.html.twig" %}
 {% block body%}
-<h1>Añadir Producto</h1>
     <div class = "container">
             <div class="wrapper">
-                <form role="form" method="post" name="add" class="form-signin">
-                    <h3 class="form-signin-heading">Crear producto</h3>
+                <form action="{{ path('add_prod') }}" role="form" method="post" name="add" class="form-signin">
+                    <h1 class="form-signin-heading">Nuevo producto</h1>
                     <hr class="colorgraph"><br>
                         <input type="text" class="form-control" name="description" placeholder="Descripcion" required autofocus="" />
                         <input type="text" class="form-control" name="code" placeholder="Codigo" required autofocus="" />
                         <input type="number" class="form-control" name="load" placeholder="Introduce un Entero" required  autofocus="" />
                         <input type="number" class="form-control" name="price" placeholder="Introduce un Flotante" required step="any" autofocus="" />       
                         <input type="text" class="form-control" name="image" placeholder="Imagen" required autofocus="" />
-                    <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="add" type="Submit">Crear</button>
+                    <button class="btn btn-lg btn-secondary btn-block"  name="Submit" value="" type="Submit">Crear</button>
                 </form>
             </div>
         </div>

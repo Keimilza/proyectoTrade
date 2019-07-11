@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}  
+<form action="{{ path('add_car') }}" role="form" method="post" name="add" class="form-signin">
+<div class="container">
+    <div class="row">
+       <div class="col-md-6"> 
+         <img src={{ product.image }} width= "500px" height= "500px" >
+           <input type="hidden" name="image" value="{{ product.image }}" >
+         </div>
+       <div class="col-md-6" style="background:white;">    
+            <table>
+                <tbody>
+                    <tr>
+                        <td><h1>{{ product.description }}</h1>
+                           <input type="hidden" name="description" value="{{ product.description }}" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><h1 style="color:#ff5733;">{{ product.price }} $</h1>
+                         <input type="hidden" name="price" value="{{ product.price }}" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Marca:</th>
+                        <td>{{ product.description }} / Cod.Articulo: {{ product.code }}</td>
+                    </tr>
+                    <tr>
+                        <th>Envio:</th>
+                        <td>Desde 10$ - <h6 style="color:#ff5733;">GRATIS con GEEK PREMIUM</h6></td>
+                    </tr>
+                    <tr>
+                        <th>Cantidad</th>
+                        <td><input type="number" name="cant" value="25" min="1" step="5" ></td>
+                    </tr>
+                    <tr>
+                        <th>Disponibilidad:</th>
+                        <td>En stock!</td>
+                    </tr>
+                     <tr>
+                        <th>Financiación:</th>
+                        <td>6, 12, 20, 30 meses</td>
+                    </tr>
+        </tbody>
+    </table>
+   <div class="row">
+       <div class="col-md-12"> <a href="{{ path('product_index') }}">Atras..</a> </div>
+   </div>
+    <div class="row">
+       <div class="col-md-6">        
+           <button type="submit" class="btn btn-outline-dark">Añadir al carrito</button>
+        </div>
+        <div class="col-md-6">
+           <button type="submit" class="btn btn-warning">Comprar</button>
+            
+        </div>
+           
+       </div>
+       <img src="/img/pie_prod.jpg" width= "100%" height= "130px" >    
+    </div>
+    </div>
+    </div>
+    </form>
+{% endblock %}

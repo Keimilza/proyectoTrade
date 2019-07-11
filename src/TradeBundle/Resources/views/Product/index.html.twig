@@ -1,7 +1,24 @@
-{% extends "base.html.twig" %}
-
-{% block title %}TradeBundle:Product:index{% endblock %}
-
-{% block body %}
-<h1>Welcome to the Product:index page</h1>
+{% extends 'base.html.twig' %}
+{% block title %} Lista de Productos {% endblock %}
+{% block body %} 
+  <div class="container">
+   <img src="/img/portada1.png" width= "1300vw" height= "600vh">
+   <div class="card-deck row">
+    {% for prod in products %}
+      
+         <div class="card col-md-4 col-lg-4 col-xl-4" style="padding: 20px">         
+           <a href={{ path('product_one', { 'id': prod.id }) }}>
+              <img src={{ prod.image }} style="border: 2vh solid #c2c2c2;" alt="Card image cap" width= "300px" height= "200px"  class="card-img-top">
+              </a>
+               <div class="card-body text-center"> 
+                <b><h5 class="card-title" style="font-family:Arial Black">{{ prod.description }}</h5></b>
+                <p class="card-text" ><h1>{{ prod.price }}$</h1></p>
+                <p class="card-text"><h5><i>Recíbelo ya</i></h5></p>
+                <img src="/img/stars.png" width= "120vh">
+              </div>
+          </div>
+        
+      {% endfor %}
+      </div>
+  </div>
 {% endblock %}

@@ -2,7 +2,7 @@
 {% block title %}Login Usuario{% endblock %}
 
 {% block body %}
-
+<div >
  {# Muestra el error en caso de existir#}
     {% if error %}
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -26,5 +26,5 @@
  
     {# Enlace al registro #}
     <p><a href="{{ path('registro') }}">Registro</a></p>
-
+</div>
 {% endblock %}
