@@ -105,7 +105,7 @@ class CarController extends Controller
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Car $car)
-    {
+    {   var_dump($request);
         $form = $this->createDeleteForm($car);
         $form->handleRequest($request);
 

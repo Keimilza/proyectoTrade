@@ -1,45 +1,79 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Cars list</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Cant</th>
-                <th>Total</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for car in cars %}
-            <tr>
-                <td><a href="{{ path('car_show', { 'id': car.id }) }}">{{ car.id }}</a></td>
-                <td>{{ car.description }}</td>
-                <td>{{ car.price }}</td>
-                <td>{{ car.cant }}</td>
-                <td>{{ car.total }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('car_show', { 'id': car.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('car_edit', { 'id': car.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('car_new') }}">Create a new car</a>
-        </li>
-    </ul>
+    <div class="row" style="justify-content:center; " > 
+	    <div class="col-md-6" style="background:white; padding:15px; margin:10px;">		
+            <div class="d-flex flex-column" >
+                <div class="p-2" >
+                    <h3>Articulos en <b>tu cesta</h3>
+                     <div class="container" style ="text-align: center;">
+                        <div class="row" style="background-color:rgb(234, 235, 237);padding:15px"> 
+                            <div class="col-md-2">ARTICULO </div>
+                            <div class="col-md-2"> </div>
+                            <div class="col-md-2">PRECIO</div> 
+                            <div class="col-md-2">UNIDADES</div>   
+                            <div class="col-md-2">TOTAL</div> 
+                            <div class="col-md-2"></div>                                 
+                        </div>
+                        {% for car in cars %}
+                         <div class="row" style="text-align: center;">                            
+                            <div class="col-md-2"><img src="{{ car.image }}" width= "100%" height= "100px" ></div>
+                            <div class="col-md-2" style="padding:15px">{{ car.description }}</div>
+                            <div class="col-md-2" style="padding:15px">{{ car.price }} $</div>    
+                            <div class="col-md-2" style="padding:15px">{{ car.cant }}</div>
+                            <div class="col-md-2" style="padding:15px">{{ car.total }} $</div>    
+                            <div class="col-md-2" style="padding:15px">  
+                                <ul style="color:white">
+                                    <li>
+                                        <a href="{{ path('car_delete', { 'id': car.id }) }}">
+                                            <img src="/img/equis.png" width= "20px" height= "20px" > 
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('car_edit', { 'id': car.id }) }}">edit</a>
+                                    </li>
+                                </ul>
+                            </div>   
+                        </div> 
+                        {% endfor %}
+                     </div>           
+                </div>
+                <div class="p-2">Flex item 2
+            
+                </div>
+                <div class="p-2">Flex item 3
+            
+                </div>
+                <div class="p-2">Flex item 4
+            
+                </div>
+                <div class="p-2">Flex item 5
+            
+                </div>      
+            </div>   
+	    </div> 
+	    <div class="col-md-6" style="background:white; border-top: 10px solid #ED6D19; margin:10px;">
+		    <div class="d-flex flex-column" style="border-top-color: 200px solid blue;">
+                <div class="p-3">
+                    <div class="d-flex flex-column">
+                        <div class="p-8">
+                           Con Be Geek Premium puedes beneficiarte de gastos de envío
+                           GRATIS
+                        </div>
+                        <div class="p-4">
+                        </div>
+                    </div> 
+                </div>
+                <div class="p-2">
+                    
+                </div>
+                <div class="p-7">
+                    
+                </div>
+	        </div> 
+        </div>
+    </div>      
+        <a href="{{ path('car_new') }}">Create a new car</a>       
+  
 {% endblock %}
