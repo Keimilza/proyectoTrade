@@ -10,7 +10,12 @@ function deleteMsg(description,id){
     $('.modal-footer .btn-danger').attr('id',id);
 }
 
-$('.modal-footer .btn-danger').on("click",(ev)=>{
+$('.modal-footer .btn-danger .p1').on("click",(ev)=>{
+    $('.modal-body').text(description);
+    window.location.href="/deleteProduct/"+id;
+});
+
+$('.modal-footer .btn-danger .p2').on("click",(ev)=>{
     let id= $(ev.target).attr("id");
     window.location.href="/deleteProduct/"+id;
 });

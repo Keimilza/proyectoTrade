@@ -21,7 +21,9 @@
                             <div class="col-md-2"><img src="{{ car.image }}" width= "100%" height= "100px" ></div>
                             <div class="col-md-2" style="padding:15px">{{ car.description }}</div>
                             <div class="col-md-2" style="padding:15px">{{ car.price }} $</div>    
-                            <div class="col-md-2" style="padding:15px">{{ car.cant }}</div>
+                            <div class="col-md-2" style="padding:15px">
+                                <input type="number" name="cant" value="{{ car.cant }}" min="1" max="{{ car.stock }}" step="1" >                            
+                            </div>
                             <div class="col-md-2" style="padding:15px">{{ car.total }} $</div>    
                             <div class="col-md-2" style="padding:15px">  
                                 <ul style="color:white">
@@ -39,16 +41,17 @@
                         {% endfor %}
                      </div>           
                 </div>
-                <div class="p-2">Flex item 2
+                <div class="p-2">
+                        <a class="btn btn-outline-secondary" href="{{ path('delete_all') }}" role="button">Vaciar Cesta</a>
+                        <a class="btn btn-outline-secondary" href="{{ path('car_index') }}" role="button">Seguir Comprando</a>
+                </div>
+                <div class="p-2">
             
                 </div>
-                <div class="p-2">Flex item 3
+                <div class="p-2">
             
                 </div>
-                <div class="p-2">Flex item 4
-            
-                </div>
-                <div class="p-2">Flex item 5
+                <div class="p-2">
             
                 </div>      
             </div>   
@@ -62,11 +65,12 @@
                            GRATIS
                         </div>
                         <div class="p-4">
+                           <div><h3>Total</h3></div><div class="totales"><h3>{{ totales }}</h3></div>
                         </div>
                     </div> 
                 </div>
-                <div class="p-2">
-                    
+                <div class="p-2" style ="align:center">
+                    <button type="button" class="btn btn-danger">Realizar Pedido</button>
                 </div>
                 <div class="p-7">
                     

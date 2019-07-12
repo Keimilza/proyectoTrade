@@ -21,13 +21,17 @@ class CarController extends Controller
      * @Method("GET")
      */
     public function indexAction()
-    {
+    {   $total = 0;
         $em = $this->getDoctrine()->getManager();
 
         $cars = $em->getRepository('TradeBundle:Car')->findAll();
-
+        
+        foreach ($cars as $car){
+          $total =$total + $car->getTotal();
+        }
         return $this->render('@Trade/car/index.html.twig', array(
             'cars' => $cars,
+            'totales' => $total,
         ));
     }
 
@@ -102,18 +106,16 @@ class CarController extends Controller
      * Deletes a car entity.
      *
      * @Route("/delete/{id}", name="car_delete")
-     * @Method("DELETE")
+     * 
      */
-    public function deleteAction(Request $request, Car $car)
-    {   var_dump($request);
-        $form = $this->createDeleteForm($car);
-        $form->handleRequest($request);
+    public function deleteAction($id)
+    {  
+       $em= $this->getDoctrine()->getManager();
+       $repository = $em->getRepository(Car::class);
+       $car = $repository->find($id);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($car);
-            $em->flush();
-        }
+       $em->remove($car);
+       $em->flush();         
 
         return $this->redirectToRoute('car_index');
     }
@@ -125,10 +127,10 @@ class CarController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm(Car $car)
+    private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('car_delete', array('id' => $car->getId())))
+            ->setAction($this->generateUrl('car_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->getForm()
         ;
@@ -147,6 +149,7 @@ class CarController extends Controller
         $cantidad = $_POST['cant'];
         $precio =  $_POST['price'];
         $imagen = $_POST['image'];
+        $stock = $_POST['stock'];
         $total = $cantidad * $precio;
         //Creamos la entidad
         $car = new Car();
@@ -155,6 +158,7 @@ class CarController extends Controller
         $car->setCant($cantidad);
         $car->setTotal($total);
         $car->setImage($imagen);
+        $car->setStock($stock);
                 
         //Persistimos la entidad
       
@@ -162,5 +166,15 @@ class CarController extends Controller
         $em->flush();
         return $this->redirectToRoute('car_index');
     }
+     /**
+     * @Route("/delete_all", name="delete_all")
+     */
+    public function deleteAll()
+    {   $em= $this->getDoctrine()->getManager();
+        $resp = $em->createQuery('DELETE FROM TradeBundle:Car')            
+                     ->getResult();
+        return $this->redirectToRoute('car_index');  
+
+        }
 
 }

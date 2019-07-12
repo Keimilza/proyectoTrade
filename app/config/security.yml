@@ -29,8 +29,8 @@ security:
             logout_on_user_change: true
             logout:
                 path: /logout   
-                target: /trade/registro
+                target: /trade/
 
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/registro, roles: ROLE_USER }
+        - { path: ^/car, roles: ROLE_USER }

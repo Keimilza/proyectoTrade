@@ -5,12 +5,13 @@ namespace TradeBundle\Controller;
 use TradeBundle\Entity\Product;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Product controller.
  *
- * @Route("/product")
+ * @Route("/")
  */
 class ProductController extends Controller
 {

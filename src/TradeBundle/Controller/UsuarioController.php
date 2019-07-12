@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 /**
  *
- * @Route("/")
+ * @Route("/use")
  */
 class UsuarioController extends Controller
 {
@@ -51,7 +51,7 @@ class UsuarioController extends Controller
     }
 
     /**
-     * @Route("/registro", name="registro")
+     * @Route("/registros", name="registros")
      */
     public function registroAction(Request $request,UserPasswordEncoderInterface $encode)
     {

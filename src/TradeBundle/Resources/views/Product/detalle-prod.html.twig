@@ -31,7 +31,9 @@
                     </tr>
                     <tr>
                         <th>Cantidad</th>
-                        <td><input type="number" name="cant" value="25" min="1" step="5" ></td>
+                        <td><input type="number" name="cant" maxlength="5" value="{{ product.load }}" min="1" max="{{ product.load }}" step="1" >
+                            <input type="hidden" name="stock" value="{{ product.load }}" >
+                        </td>
                     </tr>
                     <tr>
                         <th>Disponibilidad:</th>

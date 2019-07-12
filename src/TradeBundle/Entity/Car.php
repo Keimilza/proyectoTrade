@@ -55,7 +55,12 @@ class Car
      * @ORM\Column(name="image", type="string", length=100)
      */
     private $image;
-
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="stock", type="integer")
+     */
+    private $stock;
 
     /**
      * Get id
@@ -186,5 +191,27 @@ class Car
     {
         return $this->image;
     }
-}
+      /**
+     * Set stock
+     *
+     * @param int $stock
+     *
+     * @return Car
+     */
+    public function setStock($stock)
+    {
+        $this->stock = $stock;
 
+        return $this;
+    }
+
+    /**
+     * Get stock
+     *
+     * @return int
+     */
+    public function getStock()
+    {
+        return $this->stock;
+    }
+}
